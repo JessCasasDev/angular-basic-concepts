@@ -1,0 +1,24 @@
+<p>view-child works!</p>
+<!-- View Children -->
+<app-child
+  [items]="items"
+  (itemsOutput)="setItemsOutput($event, 'child_1')"
+></app-child>
+<app-child
+  [items]="[6, 7, 8, 9]"
+  (itemsOutput)="setItemsOutput($event, 'child_2')"
+></app-child>
+
+<hr>
+<app-child
+  *ngIf="displayAnotherChild"
+  [items]="[6, 7, 8, 9]"
+  (itemsOutput)="setItemsOutput($event, 'child_3')"
+></app-child>
+<button (click)="setDisplayAnotherChild()">add child</button>
+
+<hr>
+<!-- View Child -->
+<app-another-child></app-another-child>
+
+<div #thisElement>item</div>

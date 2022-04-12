@@ -1,0 +1,36 @@
+<form (ngSubmit)="submit()" [formGroup]="formulario">
+  <h2>Personal</h2>
+  <label for="name">Name</label>
+  <input id="name" formControlName="name" />
+  <ng-container
+    *ngIf="formulario.controls.name.dirty && formulario.controls.name.errors"
+  >
+    <div *ngIf="formulario.controls.name.errors.required">This is required</div>
+    <div *ngIf="formulario.controls.name.errors.minlength">Min length is 5</div>
+    <div *ngIf="formulario.controls.name.errors.maxlength">
+      Max length is 15
+    </div>
+  </ng-container>
+
+  <label for="lastName">lastName</label>
+  <input id="lastName" formControlName="lastName" />
+
+  <ng-container *ngIf="email.dirty && email.errors">
+    <div *ngIf="email.errors.email">Wrong Email</div>
+  </ng-container>
+
+  <label for="name">Email</label>
+  <input id="email" formControlName="email" type="email" />
+
+  <hr />
+  <div formGroupName="address">
+    <h2>Address</h2>
+    <label for="street">Street</label>
+    <input id="street" formControlName="street" />
+
+    <label for="city">City</label>
+    <input id="city" formControlName="city" />
+  </div>
+  <button [disabled]="!formulario.valid">Submit</button>
+</form>
+

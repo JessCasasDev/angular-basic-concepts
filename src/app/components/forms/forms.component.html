@@ -1,0 +1,34 @@
+<div>
+  <label for="name">Name:</label>
+  <input [(ngModel)]="currentItem.name" id="name" #name="ngModel" required />
+  <div *ngIf="name.errors?.['required']">Name Required</div>
+</div>
+
+<div>
+  <label for="age">Age:</label>
+  <input [(ngModel)]="currentItem.age" id="age" type="number" />
+  <div *ngIf="currentItem.age < 0">Number must be greater than 0</div>
+</div>
+
+<hr>
+<div>{{ currentItem.name }} - {{ currentItem.age }}</div>
+
+<!-- En la aplicacion, crear un formulario de Model Driven Form, que contenga la informacion de un usuario, name, lastName, dateBirth, education level: puede escoger entre: 
+- primary education 
+- lower secondary education 
+- upper secondary education 
+- postsecondary non-tertiary education 
+- short-cycle tertiary education 
+- bachelor’s 
+- master’s 
+- doctor.
+y un boton de submit
+
+Componente padre
+- Actualizar la lista de la sesion pasada para mostrar el nombre y apellido, fecha de nacimiento y nivel de educacion.
+- Cuando el usuario le de en submit, enviar al componente padre la informacion de este formulario y que se muestre el nuevo usuario en la vista.
+- En el componente padre, tener un metodo que se llame SetUserInfo() y que la llamada este asociada a un boton, y que al hacer click en el boton, el formulario del usuario se modifique con la siguiente informacion 
+	- Name: Joanne
+	- lastName: Rowling
+	- dateBirth: 31/07/1965
+	- education level: bachelor’s  -->

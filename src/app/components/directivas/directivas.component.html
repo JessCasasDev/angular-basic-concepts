@@ -1,0 +1,47 @@
+<ng-template #otraVista>
+    <div></div><app-child></app-child>
+</ng-template>
+<h1>directivas works!</h1>
+
+<h2>Directivas Estructurales</h2>
+
+<h3>NgFor</h3>
+Se usa para recorrer una lista o mostrar un elemento multiples veces
+<ng-container *ngFor="let element of list">
+  <p>{{ element.name }}</p>
+</ng-container>
+
+<b>Mas opciones de NgFor</b>
+<ul *ngFor="let element of list; let i = index; trackBy: trackItems">
+  <li>{{ element.name }} - {{ i }}</li>
+</ul>
+
+<h3>NgIf</h3>
+Se usa para mostrar o no un elemento
+<!-- <div *ngIf="displayElement">Esto se muestra solo a veces</div> -->
+
+<hr />
+
+<div><b>Más opciones de NgIf</b></div>
+<ng-container *ngIf="displayElement; else otraVista">Display</ng-container>
+
+
+<button (click)="setDisplayElement()">Update DisplayElement</button>
+
+<h3>NgSwitch</h3>
+
+<div [ngSwitch]="currentItem">
+    <div *ngSwitchCase="'apple'">Estoy siendo una manzana</div>
+    <div *ngSwitchCase="'bannana'">Estoy siendo una bannana</div>
+    <div *ngSwitchCase="'rice'">Estoy siendo un arroz</div>
+    <div *ngSwitchDefaultCase>Estoy siendo un arroz</div>
+</div>
+
+<h2>Directivas Atributo</h2>
+<h3>NgClass</h3>
+<div [ngClass]="{ changeColor: displayElement, oldColor: !displayElement }">
+    cambiando colores
+</div>
+
+<div [ngStyle]="{ 'font-size': '50px' }">Muy grande</div>
+

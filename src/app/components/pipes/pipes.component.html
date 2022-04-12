@@ -1,0 +1,40 @@
+Comunes creadas por Angular
+<h2>Date</h2>
+<p>date: {{ date | date }}</p>
+<p>date: {{ date | date: "dd/mm/yyyy HH:mm:ss" }}</p>
+
+<h2>Formatos</h2>
+<p>{{ "texto en mayuscula" | uppercase }}</p>
+<p>{{ "texto en MINUSCULA" | lowercase }}</p>
+<p>{{ "texto que es muy largo pero puede ser truncado" | slice: 0:15 }}</p>
+<p>{{ 5000 | currency: "COP" }}</p>
+<p>{{ 5000 | currency: "EUR" }}</p>
+<p>{{ 5000 | currency }}</p>
+
+<button (click)="addItem()">add Item</button>
+{{ items.length }}
+<hr />
+<div style="display: inline-block">
+  <h2>Pipes Puros</h2>
+  <p>
+    Un cambio puro es cuando se cambia el valor de un primitivo (string,
+    boleano, numero, etc), o cuando se cambia la referencia del objeto (array,
+    date, objeto o funcion)
+  </p>
+  <div *ngFor="let item of items | filterActive: 'item'">
+    <div>{{ item.name }}</div>
+  </div>
+</div>
+
+<hr />
+<h2>Impuros</h2>
+<div *ngFor="let item of items | filterActiveImpure: 'item'">
+  <div>{{ item.name }}</div>
+</div>
+
+<div style="display: inline-block">
+  <h3>Sin Pipe</h3>
+  <div *ngFor="let item of items">
+    <div>{{ displayActive(item) ? item.name : "" }}</div>
+  </div>
+</div>

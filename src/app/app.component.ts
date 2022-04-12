@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'basics';
+
+  item = 0;
+  updateItem() {
+    this.item++;
+  }
 }

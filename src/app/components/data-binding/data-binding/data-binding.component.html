@@ -1,0 +1,25 @@
+<h1>Data Binding</h1>
+
+<h2>Interpolacion</h2>
+<div>Cuando se muestran expresiones en el HTML, por ejemplo</div>
+<ul>
+  <li>
+    Mostrar el valor de una variable dentro del componente:
+    {{ textoInterpolacion }}
+  </li>
+  <img src="{{ url }}" />
+  <li>Se pueden crear expresiones dentro que serán evaluadas: {{ 1 + 1 }}</li>
+</ul>
+
+{{method()}} 
+
+<h2>Property Binding</h2>
+<img [src]="url" />
+<button [disabled]="disabled">Disabled</button>
+<div
+  [style.background]="'red'"
+  [style.width]="'fit-content'"
+  [style.padding]="'1rem'"
+>
+  Cambiando el estilo
+</div>

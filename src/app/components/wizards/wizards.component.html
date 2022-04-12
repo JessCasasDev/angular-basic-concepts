@@ -1,0 +1,10 @@
+<ng-container *ngFor="let wizard of (wizards$ | async)">
+  <div>{{ wizard.name }}</div>
+  <div>{{ wizard.lastName }}</div>
+  Address
+  <div>{{ wizard.address.street }}{{ wizard.address.city }}</div>
+
+  House
+  <div>{{ wizard.house }}</div>
+  <hr />
+</ng-container>
