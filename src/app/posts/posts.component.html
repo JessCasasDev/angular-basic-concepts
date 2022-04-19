@@ -1,0 +1,6 @@
+<ul class="posts" *ngFor="let post of posts">
+  <li>
+    <a (click)="goToPost(post)">{{ post.title }}</a>
+    <p>{{ post | json }}</p>
+  </li>
+</ul>

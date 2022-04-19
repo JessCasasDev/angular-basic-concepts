@@ -1,0 +1,12 @@
+<ng-container *ngIf="post">
+  <h1>{{ post.title }}</h1>
+  <h3>{{ post.body }}</h3>
+</ng-container>
+
+<section>Comments:</section>
+
+<div *ngFor="let comment of comments">
+  {{ comment.body }}
+  <div>By: {{ comment.name }}</div>
+  <hr />
+</div>

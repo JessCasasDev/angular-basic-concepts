@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AnotherService } from 'src/app/services/another-service';
-import { MyService, Wizard } from 'src/app/services/my-service.service';
+import { Wizard } from 'src/app/services/another-service';
+import { MyService } from 'src/app/services/my-service.service';
 
 @Component({
   selector: 'app-wizards',
@@ -9,7 +9,7 @@ import { MyService, Wizard } from 'src/app/services/my-service.service';
   styleUrls: ['./wizards.component.scss'],
 })
 export class WizardsComponent {
-  constructor(private anotherService: AnotherService) {}
-  
-  wizards$: Observable<Wizard[]> = this.anotherService.getWizards();
+  constructor(private myService: MyService) {}
+
+  wizards$: Observable<Wizard[]> = this.myService.getWizards();
 }

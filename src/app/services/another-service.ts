@@ -1,7 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { Wizard } from './my-service.service';
-
+export interface Wizard {
+  name: string;
+  lastName: string;
+  house: 'Gryffindor' | 'Hufflepuff' | 'Ravenclaw ' | 'Slytherin';
+  email: string;
+  address: {
+    city: string;
+    street: string;
+  };
+}
 @Injectable({
   providedIn: 'root',
 })
@@ -38,10 +46,32 @@ export class AnotherService {
       },
     },
   ];
+
+  // Subject()
+  //next(1)
+  //next(2)
+  //subscribe() -> no escucha nada
+  // next(3) -> escucha el 3
+
+  // BehaviorSubject()
+  //next(1)
+  //next(2)
+  //subscribe() -> escucha 2
+  // next(3) -> escucha 3
+
+  // ReplaySubject(3)
+  //next(1)
+  //next(2)
+  //next(3)
+  //next(4)
+  //subscribe() -> escucha 2,3,4
+  // next(5) -> 3,4,5
+
   wizards = new BehaviorSubject<Wizard[]>(this.wizardsList);
 
-  constructor() {}
-
+  constructor() {
+    this.wizards.next(this.wizardsList);
+  }
   sendWizard(wizard: Wizard) {
     console.log(wizard);
 

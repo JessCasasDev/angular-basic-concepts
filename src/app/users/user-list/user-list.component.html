@@ -1,0 +1,8 @@
+<ul class="users" *ngFor="let user of users$ | async">
+  <li>
+    <a (click)="setUser(user)" [routerLink]="['../user', user.id]" [state]="{user}">{{ user.name }}</a>
+    <p>{{ user.email }}</p>
+    <p>{{ user.phone }}</p>
+    <p>{{ user.address | json }}</p>
+  </li>
+</ul>

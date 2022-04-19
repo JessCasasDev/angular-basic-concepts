@@ -1,0 +1,6 @@
+<h1>Posts from {{ user?.name }}</h1>
+
+<ng-container *ngFor="let posts of posts">
+  <h3>{{ posts.title }}</h3>
+  <p>{{ posts.body }}</p>
+</ng-container>
