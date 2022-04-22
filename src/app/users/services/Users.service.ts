@@ -27,4 +27,25 @@ export class UsersService {
   getSelectedUser() {
     return this.user;
   }
+
+  getTodos() {
+    debugger
+    return this.http.get(
+      'https://crudcrud.com/api/94126cedae844c7b942ee8b43e41865f/todos'
+    );
+  }
+
+  createTodo() {
+    return this.http.post(
+      'https://crudcrud.com/api/94126cedae844c7b942ee8b43e41865f/todos',
+      {
+        title: 'Hola!',
+        creator: 'Jess',
+        status: 'Created',
+        createdDate: new Date(),
+        startedDate: null, //fecha en formato ISO. Fecha de cambio entre Created y Doing,
+        endDate: null, //fecha en formato ISO. Fecha de cambio entre Doing y Done
+      }
+    );
+  }
 }

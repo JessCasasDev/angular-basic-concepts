@@ -17,15 +17,12 @@ import { FilterPipeImpure } from './components/pipes/impure-pipe/impure-pipe';
 import { ObservablesComponent } from './components/observables/observables.component';
 import { ReactiveFormsComponent } from './components/reactive-forms/reactive-forms.component';
 import { WizardsComponent } from './components/wizards/wizards.component';
-import { AnotherService } from './services/another-service';
 import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostComponent } from './posts/post/post.component';
-import { UsersComponent } from './users/users.component';
-import { UserComponent } from './users/user/user.component';
-import { UserListComponent } from './users/user-list/user-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { MyService } from './services/my-service.service';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalModule } from './shared/modal/modal.module';
 
 @NgModule({
   declarations: [
@@ -45,17 +42,17 @@ import { MyService } from './services/my-service.service';
     WizardsComponent,
     PostsComponent,
     PostComponent,
-    UsersComponent,
-    UserComponent,
-    UserListComponent,
+
     NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
+    FormsModule, //Test Driven Forms
+    ReactiveFormsModule, //Formularios Reactivos
     HttpClientModule,
+    NoopAnimationsModule,
+    ModalModule,
   ],
   //providers: [AnotherService, MyService],
   bootstrap: [AppComponent],

@@ -1,6 +1,15 @@
+<!-- <div *ngFor="let todo of todos">
+  {{ todo | json }}
+  <button (click)="updateTodo(todo)">update</button>
+  <hr />
+</div>
+
+<button (click)="createTODO()">create</button>
+ -->
 <ul class="posts" *ngFor="let post of posts">
   <li>
     <a (click)="goToPost(post)">{{ post.title }}</a>
     <p>{{ post | json }}</p>
   </li>
 </ul>
+

@@ -4,3 +4,9 @@
   <h3>{{ posts.title }}</h3>
   <p>{{ posts.body }}</p>
 </ng-container>
+<button (click)="createTodo()">ccc</button>
+
+<ng-container *ngFor="let todo of todos">
+  {{todo | json}}
+  <hr>
+</ng-container>

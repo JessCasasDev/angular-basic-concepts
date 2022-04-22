@@ -1,0 +1,21 @@
+<div id="modal-content-wrapper">
+  <header id="modal-header">
+    <h1 id="modal-title">¿Estas seguro que quieres salir?</h1>
+  </header>
+  <section id="modal-body">
+    <p>Si le das click en aceptar, los cambios no serán guardados</p>
+  </section>
+  <footer class="modal-footer">
+    <button mat-raised-button id="modal-action-button" (click)="close()">
+      Salir
+    </button>
+    <button mat-raised-button id="modal-cancel-button" (click)="stay()">
+      Quedarse
+    </button>
+  </footer>
+</div>
+
+Subject: {{ s }} Behavior: {{ b }} Replay{{ r }}
+
+<button (click)="next()">next</button>
+<button (click)="subcription()">next</button>

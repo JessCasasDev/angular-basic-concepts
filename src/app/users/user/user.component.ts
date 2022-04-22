@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { ModalService } from '../../shared/modal/modal.service';
 import { UsersService } from '../services/Users.service';
 
 @Component({
@@ -12,12 +13,15 @@ import { UsersService } from '../services/Users.service';
 export class UserComponent implements OnInit, OnDestroy {
   constructor(
     private userService: UsersService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private modalService: ModalService
   ) {}
 
   posts: any;
   user: any;
-  unsubscribe$ = new Subject();
+  unsubscribe$ = new Subject<boolean>();
+
+  todos: any;
 
   ngOnInit(): void {
     this.route.params.pipe(takeUntil(this.unsubscribe$)).subscribe((params) => {
@@ -36,6 +40,14 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   canDeactivate() {
-    return confirm('Are you sure do you want to leave');
+    //return window.confirm()
+    return this.modalService.openConfirmationDialog();
+  }
+
+  createTodo() {
+    this.userService.createTodo().subscribe();
+    this.userService.getTodos().subscribe((todos) => {
+      this.todos = todos;
+    });
   }
 }
