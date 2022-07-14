@@ -24,6 +24,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from './shared/modal/modal.module';
 import { HighlightDirective } from './components/directivas/atributo/highlight.directive';
+import { HostBindingDirective } from './components/directivas/host-binding/host-binding.directive';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { HighlightDirective } from './components/directivas/atributo/highlight.d
 
     NotFoundComponent,
     HighlightDirective,
+    HostBindingDirective,
   ],
   imports: [
     BrowserModule,
