@@ -23,6 +23,7 @@ import { PostComponent } from './posts/post/post.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from './shared/modal/modal.module';
+import { HighlightDirective } from './components/directivas/atributo/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ModalModule } from './shared/modal/modal.module';
     PostComponent,
 
     NotFoundComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,

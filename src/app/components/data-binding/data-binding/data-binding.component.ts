@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
   selector: 'app-data-binding',
@@ -7,14 +12,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataBindingComponent {
   textoInterpolacion = 'Interpolacion';
-  url = 'https://lh3.googleusercontent.com/9PIUsClrLHDgUriw1keU_74EHWjCSBv5Phu21Wsp41FxdIR8nuJFUHSKA8eL5Uo96Pu-u79HLTsEYWe_xByvfNzSnQ=w128-h128-e365-rj-sc0x00ffffff';
+  url =
+    'https://lh3.googleusercontent.com/9PIUsClrLHDgUriw1keU_74EHWjCSBv5Phu21Wsp41FxdIR8nuJFUHSKA8eL5Uo96Pu-u79HLTsEYWe_xByvfNzSnQ=w128-h128-e365-rj-sc0x00ffffff';
   disabled = true;
 
+  text = 'Hola';
 
-  constructor() {}
+  constructor(private cd: ChangeDetectorRef) {}
 
   method() {
     this.disabled = !this.disabled;
-    console.log('loggin info')
+    console.log('logging info');
   }
 }

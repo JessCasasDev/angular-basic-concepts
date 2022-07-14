@@ -20,7 +20,9 @@ export class ViewChildComponent implements OnInit, AfterViewInit {
   displayAnotherChild = false;
 
   @ViewChildren(ChildComponent) childs!: QueryList<ChildComponent>;
+ 
   @ViewChild(AnotherChildComponent) child!: AnotherChildComponent;
+ 
   @ViewChild('thisElement') element: any;
 
   ngOnInit(): void {
@@ -31,8 +33,9 @@ export class ViewChildComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.childs.changes.subscribe((element) => {
       // element.enviarMensajeAlPadre();
-      console.log(element.first.otroMetodo());
-      console.log(element.first.item?.displayMessage());
+      //console.log(element.first.otroMetodo());
+      console.log(this.childs.get(2))
+      //console.log(element.first.item?.displayMessage());
     });
 
     console.log(this.child);
@@ -44,7 +47,7 @@ export class ViewChildComponent implements OnInit, AfterViewInit {
     this.displayAnotherChild = !this.displayAnotherChild;
   }
 
-  setItemsOutput(array: Array<number>, child: string) {
+  setItemsOutput(array: Array<number>, child?: string) {
     console.log(array, child);
   }
 }

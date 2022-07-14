@@ -11,8 +11,8 @@
   <li>Se pueden crear expresiones dentro que serán evaluadas: {{ 1 + 1 }}</li>
 </ul>
 
-{{method()}} 
-
+<!--  {{ method() }} -->
+ 
 <h2>Property Binding</h2>
 <img [src]="url" />
 <button [disabled]="disabled">Disabled</button>
@@ -23,3 +23,15 @@
 >
   Cambiando el estilo
 </div>
+
+<h2>Bidireccional (Two way Binding)</h2>
+<label for="productNameInput">Value</label>
+<input
+  type="text"
+  id="productNameInput"
+  placeholder="Product Name"
+  name="productName"
+  [(ngModel)]="text"
+/>
+
+{{ text }}

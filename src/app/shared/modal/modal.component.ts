@@ -21,6 +21,7 @@ export class ModalComponent implements OnInit {
   r: any;
   ngOnInit(): void {}
   valor = 1;
+  
   close() {
     this.agreed$.next(true);
     this.closeModal();

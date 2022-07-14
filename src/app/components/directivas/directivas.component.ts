@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectivasComponent {
   displayElement = false;
-
+  variableDentroDelTs = 'white'
   list = [
     { id: 1, name: 'Julian' },
     { id: 2, name: 'Marcos' },

@@ -1,7 +1,4 @@
-<ng-template #otraVista>
-    <div></div><app-child></app-child>
-</ng-template>
-<h1>directivas works!</h1>
+<h1>directiva</h1>
 
 <h2>Directivas Estructurales</h2>
 
@@ -18,30 +15,39 @@ Se usa para recorrer una lista o mostrar un elemento multiples veces
 
 <h3>NgIf</h3>
 Se usa para mostrar o no un elemento
-<!-- <div *ngIf="displayElement">Esto se muestra solo a veces</div> -->
+<div *ngIf="displayElement">Esto se muestra solo a veces</div>
 
 <hr />
 
 <div><b>Más opciones de NgIf</b></div>
-<ng-container *ngIf="displayElement; else otraVista">Display</ng-container>
-
+<ng-container *ngIf="!displayElement; else otraVista">Display</ng-container>
 
 <button (click)="setDisplayElement()">Update DisplayElement</button>
 
 <h3>NgSwitch</h3>
 
-<div [ngSwitch]="currentItem">
-    <div *ngSwitchCase="'apple'">Estoy siendo una manzana</div>
-    <div *ngSwitchCase="'bannana'">Estoy siendo una bannana</div>
-    <div *ngSwitchCase="'rice'">Estoy siendo un arroz</div>
-    <div *ngSwitchDefaultCase>Estoy siendo un arroz</div>
-</div>
+<ng-container [ngSwitch]="currentItem">
+  <div *ngSwitchCase="'apple'">Estoy siendo una manzana</div>
+  <div *ngSwitchCase="'bannana'">Estoy siendo una bannana</div>
+  <div *ngSwitchCase="'rice'">Estoy siendo un arroz</div>
+  <div *ngSwitchDefaultCase>Estoy siendo un arroz</div>
+</ng-container>
 
 <h2>Directivas Atributo</h2>
 <h3>NgClass</h3>
 <div [ngClass]="{ changeColor: displayElement, oldColor: !displayElement }">
-    cambiando colores
+  cambiando colores
 </div>
 
-<div [ngStyle]="{ 'font-size': '50px' }">Muy grande</div>
+<div [ngStyle]="{ 'font-size': displayElement && '50px' }">Muy grande</div>
 
+<p appHighlight textColor="red">Me estoy coloreando</p>
+<p [appHighlight]="'red'" [textColor]="variableDentroDelTs">
+  Me estoy coloreando de rojo
+</p>
+<img appHighlight src="app/image.jpg" />
+
+<ng-template #otraVista>
+  <div>Hooooola!!!</div>
+  <app-child></app-child>
+</ng-template>

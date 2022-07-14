@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { AnotherChildComponent } from '../another-child/another-child.component';
 
 @Component({
@@ -8,10 +14,11 @@ import { AnotherChildComponent } from '../another-child/another-child.component'
 })
 export class ChildComponent {
   @Input() items!: Array<number>;
+  @Input() saludo!: string;
+
   @Output() itemsOutput = new EventEmitter<Array<number>>();
 
-  @ViewChild(AnotherChildComponent) item:any;
-
+  @ViewChild(AnotherChildComponent) item: any;
 
   enviarMensajeAlPadre() {
     this.itemsOutput.emit(this.items.map((item) => item * 2));

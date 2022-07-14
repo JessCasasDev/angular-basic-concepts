@@ -2,22 +2,25 @@
 <!-- View Children -->
 <app-child
   [items]="items"
-  (itemsOutput)="setItemsOutput($event, 'child_1')"
+  (itemsOutput)="setItemsOutput($event)"
 ></app-child>
+
 <app-child
   [items]="[6, 7, 8, 9]"
+  [saludo]="'Hi!'"
   (itemsOutput)="setItemsOutput($event, 'child_2')"
 ></app-child>
 
-<hr>
+<hr />
 <app-child
   *ngIf="displayAnotherChild"
   [items]="[6, 7, 8, 9]"
   (itemsOutput)="setItemsOutput($event, 'child_3')"
 ></app-child>
+
 <button (click)="setDisplayAnotherChild()">add child</button>
 
-<hr>
+<hr />
 <!-- View Child -->
 <app-another-child></app-another-child>
 

@@ -33,14 +33,15 @@ export class LifeCycleComponent
   @Input()
   item!: number;
 
-  @ContentChild('div') contenido!: ElementRef;
+  @ContentChild('contenido') contenido!: ElementRef;
 
   constructor() {
     console.log('constructor');
   }
+
   ngOnChanges(changes: SimpleChanges): void {
     //const;
-    //console.log('ngOnChanges', changes);
+    console.log('ngOnChanges', changes);
   }
 
   ngOnInit(): void {
@@ -72,4 +73,6 @@ export class LifeCycleComponent
   ngOnDestroy(): void {
     console.log('ngOnDestroy');
   }
+
+  
 }
