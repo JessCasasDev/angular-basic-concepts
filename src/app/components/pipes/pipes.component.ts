@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FilterPipe } from './filter-pipe/filter-pipe';
 
 export interface Item {
   name: string;
@@ -19,14 +20,17 @@ export class PipesComponent {
     { name: 'Vue', active: true },
   ];
 
+  constructor(private pipe: FilterPipe) {}
+
   displayActive(item: Item) {
     console.log('entering method inside Pipes Component');
-    return item.active;
+    //return item.active;
+    return this.pipe.transform(this.items, 'item');
   }
 
   addItem() {
     this.active = !this.active;
-   /*  this.items.push({ name: 'otro', active: true }); */
+    /* this.items.push({ name: 'otro', active: true }); */
     this.items = [...this.items, { name: 'Otro', active: this.active }];
   }
 }

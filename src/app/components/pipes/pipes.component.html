@@ -1,12 +1,14 @@
 Comunes creadas por Angular
 <h2>Date</h2>
+<p>Date sin pipe: {{ date }}</p>
+<p>Date sin pipe: {{ date.toISOString() }}</p>
 <p>date: {{ date | date }}</p>
-<p>date: {{ date | date: "dd/mm/yyyy HH:mm:ss" }}</p>
+<p>date: {{ date | date: "dd/MM/yyyy HH:mm:ss" }}</p>
 
 <h2>Formatos</h2>
 <p>{{ "texto en mayuscula" | uppercase }}</p>
 <p>{{ "texto en MINUSCULA" | lowercase }}</p>
-<p>{{ "texto que es muy largo pero puede ser truncado" | slice: 0:15 }}</p>
+<p>{{ "texto que es muy largo pero puede ser truncado" | slice: 0:15 }}...</p>
 <p>{{ 5000 | currency: "COP" }}</p>
 <p>{{ 5000 | currency: "EUR" }}</p>
 <p>{{ 5000 | currency }}</p>

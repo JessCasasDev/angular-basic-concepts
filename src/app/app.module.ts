@@ -27,6 +27,7 @@ import { HighlightDirective } from './components/directivas/atributo/highlight.d
 import { HostBindingDirective } from './components/directivas/host-binding/host-binding.directive';
 
 @NgModule({
+  providers: [FilterPipe],
   declarations: [
     AppComponent,
     DataBindingComponent,

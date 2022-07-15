@@ -4,6 +4,7 @@ import {
   HostBinding,
   HostListener,
   Input,
+  Renderer2,
 } from '@angular/core';
 
 @Directive({
@@ -13,12 +14,11 @@ export class HighlightDirective {
   @Input() appHighlight!: string;
   @Input() textColor!: string;
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef, private render: Renderer2) {}
 
   @HostListener('mouseenter') onMouseEnter() {
     this.highlight(this.appHighlight || 'yellow');
     this.addColor(this.textColor || 'black');
-  
   }
 
   @HostListener('mouseleave') onMouseLeave() {
@@ -27,10 +27,12 @@ export class HighlightDirective {
   }
 
   private highlight(color: string) {
-    this.el.nativeElement.style.backgroundColor = color;
+    //this.el.nativeElement.style.backgroundColor = color;
+    this.render.setStyle(this.el.nativeElement, 'background-color', color);
   }
 
   private addColor(color: string) {
-    this.el.nativeElement.style.color = color;
+    this.render.setStyle(this.el.nativeElement, 'color', color);
+    //this.el.nativeElement.style.color = color;
   }
 }

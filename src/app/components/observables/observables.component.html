@@ -1,7 +1,13 @@
-{{ displayNumero }}
+<div style="padding: 40px; font-size: 20px">
+  {{ displayNumero }}
+  <hr />
+  <button (click)="next()">Next</button>
+  <button (click)="subscribe()">Subscribir</button>
+  <button (click)="complete()">Completar</button>
+  <button (click)="error()">Error</button>
+  {{ observable$ | async }}
 
-<button (click)="next()">Next</button>
-<button (click)="subscribe()">Subscribir</button>
-<button (click)="complete()">Completar</button>
-
-<!-- {{ displayNumero | async }} -->
+  <ng-container *ngIf="observable$ | async as numero">
+    {{ numero }}
+  </ng-container>
+</div>
