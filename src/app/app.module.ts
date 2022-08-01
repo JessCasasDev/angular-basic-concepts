@@ -25,6 +25,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from './shared/modal/modal.module';
 import { HighlightDirective } from './components/directivas/atributo/highlight.directive';
 import { HostBindingDirective } from './components/directivas/host-binding/host-binding.directive';
+import { StorageComponent } from './storage/storage.component';
 
 @NgModule({
   providers: [FilterPipe],
@@ -49,6 +50,7 @@ import { HostBindingDirective } from './components/directivas/host-binding/host-
     NotFoundComponent,
     HighlightDirective,
     HostBindingDirective,
+    StorageComponent,
   ],
   imports: [
     BrowserModule,

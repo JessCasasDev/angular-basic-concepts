@@ -72,6 +72,7 @@ export class AnotherService {
   constructor() {
     this.wizards.next(this.wizardsList);
   }
+  
   sendWizard(wizard: Wizard) {
     console.log(wizard);
 

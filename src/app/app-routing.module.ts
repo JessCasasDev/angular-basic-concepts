@@ -15,7 +15,6 @@ const routes: Routes = [
     path: 'post/:id',
     component: PostComponent,
     canActivate: [ActivatePostGuard],
-    
     data: [{ canPass: true }],
   },
   {

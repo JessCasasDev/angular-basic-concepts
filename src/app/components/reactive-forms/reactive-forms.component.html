@@ -1,4 +1,4 @@
-<form (ngSubmit)="submit()" [formGroup]="formulario">
+<form (ngSubmit)="submit($event)" [formGroup]="formulario">
   <h2>Personal</h2>
   <label for="name">Name</label>
   <input id="name" formControlName="name" />
@@ -10,17 +10,19 @@
     <div *ngIf="formulario.controls.name.errors.maxlength">
       Max length is 15
     </div>
+    <div *ngIf="formulario.controls.name.errors.nameAlreadyExists">
+      Name is already in use
+    </div>
   </ng-container>
 
   <label for="lastName">lastName</label>
   <input id="lastName" formControlName="lastName" />
 
-  <ng-container *ngIf="email.dirty && email.errors">
-    <div *ngIf="email.errors.email">Wrong Email</div>
-  </ng-container>
-
   <label for="name">Email</label>
   <input id="email" formControlName="email" type="email" />
+  <ng-container *ngIf="email.dirty && email.invalid">
+    <div *ngIf="email.errors?.email">Wrong Email</div>
+  </ng-container>
 
   <hr />
   <div formGroupName="address">
@@ -30,7 +32,12 @@
 
     <label for="city">City</label>
     <input id="city" formControlName="city" />
+
+    <label for="zip">Zip</label>
+    <input id="zip" formControlName="zip" />
+    <ng-container *ngIf="zip.dirty && zip.errors">
+      <div *ngIf="zip.errors.invalidZip">Invalid Zip</div>
+    </ng-container>
   </div>
   <button [disabled]="!formulario.valid">Submit</button>
 </form>
-
