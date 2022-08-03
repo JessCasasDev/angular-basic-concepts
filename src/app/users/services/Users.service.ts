@@ -29,7 +29,7 @@ export class UsersService {
   }
 
   getTodos() {
-    debugger
+    debugger;
     return this.http.get(
       'https://crudcrud.com/api/94126cedae844c7b942ee8b43e41865f/todos'
     );

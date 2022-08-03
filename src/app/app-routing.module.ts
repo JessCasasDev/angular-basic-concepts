@@ -8,20 +8,20 @@ import { PostsComponent } from './posts/posts.component';
 
 const routes: Routes = [
   {
-    path: 'posts',
-    component: PostsComponent,
-  },
-  {
-    path: 'post/:id',
+    path: 'posts/:id',
     component: PostComponent,
     canActivate: [ActivatePostGuard],
     data: [{ canPass: true }],
   },
   {
+    path: 'posts',
+    component: PostsComponent,
+  },
+  {
     path: 'users',
     canLoad: [CanLoadGuard],
-    loadChildren: () => //Lazy Loading
-    import('./users/users.module').then((mod) => mod.UsersModule),
+    //lazy loading
+    loadChildren: () => import('./users/users.module').then((mod) => mod.UsersModule),
   },
   { path: '', redirectTo: 'users', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent },

@@ -10,9 +10,7 @@ import { Observable } from 'rxjs';
 import { first, map } from 'rxjs/operators';
 import { UserComponent } from '../user/user.component';
 
-@Injectable({
-  providedIn: 'root',
-})
+
 export class DeactivateUserGuard implements CanDeactivate<UserComponent> {
   canDeactivate(
     component: UserComponent,
@@ -24,6 +22,7 @@ export class DeactivateUserGuard implements CanDeactivate<UserComponent> {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
+
     return component.canDeactivate().pipe(
       map((value) => {
         console.log(value);

@@ -24,7 +24,7 @@ export class PostsComponent implements OnInit {
   }
 
   goToPost(post: any) {
-    this.router.navigateByUrl(`post/${post.id}`, { state: { post } });
+    this.router.navigateByUrl(`posts/${post.id}`, { state: { post } });
   }
 
   createTODO() {

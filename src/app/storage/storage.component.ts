@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieStorageService } from './services/cookie-storage';
 import { LocalStorageService } from './services/local-storage.service';
 import { SessionStorageService } from './services/session-storage.service';
 
@@ -17,7 +18,7 @@ export class StorageComponent implements OnInit {
     storage: ['browser'],
     accessibleFrom: 'Any Window',
   };
-  
+
   sessionStorageObj = {
     type: 'sessionStorage',
     savedInBrowser: true,
@@ -29,10 +30,12 @@ export class StorageComponent implements OnInit {
   };
   constructor(
     private localStorage: LocalStorageService,
-    private sessionStorage: SessionStorageService
+    private sessionStorage: SessionStorageService,
+    private cookieStorage: CookieStorageService
   ) {}
 
   ngOnInit(): void {}
+
   saveLocal() {
     this.localStorage.setItem(this.localStorageObj);
   }
@@ -63,5 +66,17 @@ export class StorageComponent implements OnInit {
   }
   removeSession() {
     this.sessionStorage.removeItem();
+  }
+
+  createCookie() {
+    this.cookieStorage.createItem('username', 'Jess');
+  }
+
+  getCookies() {
+    console.log(this.cookieStorage.retrieveItem());
+  }
+
+  removeCookie() {
+    this.cookieStorage.removeItem('username');
   }
 }
